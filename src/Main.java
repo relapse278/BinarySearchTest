@@ -13,7 +13,8 @@ public class Main {
         insert(1);
         insert(0);
         delete(2);
-
+        update(1, 10);
+        System.out.println("!!!");
 //        for (int i: array) {
 //            System.out.println(i);
 //        }
@@ -57,5 +58,10 @@ public class Main {
                 array[--size] = null;
             }
         }
+    }
+
+    static void update(int oldValue, int newValue) {
+        delete(oldValue);
+        insert(newValue);
     }
 }
