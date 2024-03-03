@@ -4,7 +4,6 @@ public class Main {
     final static  int MAX_SIZE = 5;
     static Integer[] array = new Integer[MAX_SIZE];
     static int size = 0;
-    static int insertValue;
 
     public static void main(String[] args) {
         Arrays.fill(array, null);
@@ -13,6 +12,7 @@ public class Main {
         insert(8);
         insert(1);
         insert(0);
+        delete(2);
 
 //        for (int i: array) {
 //            System.out.println(i);
@@ -47,5 +47,15 @@ public class Main {
             array[0] = insertValue;
         }
         size++;
+    }
+
+    static void delete(int deleteValue) {
+        if (size != 0) {
+            int position = Arrays.binarySearch(array, 0, size, deleteValue);
+            if (position >= 0) {
+                System.arraycopy(array, position + 1, array, position, size - position - 1);
+                array[--size] = null;
+            }
+        }
     }
 }
